@@ -119,7 +119,7 @@ export class Syntax {
         return (
             this.isLogicConstant(expressionArray[previousIndex]) 
             || this.isPropositionalSymbol(expressionArray[previousIndex])
-            || this.isSeparator(expressionArray[previousIndex])
+            || this.isLastSeparator(expressionArray[previousIndex])
         );
     }
 
@@ -129,7 +129,7 @@ export class Syntax {
             this.isLogicConstant(expressionArray[nextIndex]) 
             || this.isPropositionalSymbol(expressionArray[nextIndex])
             || this.logicOperators.negativeOperator == expressionArray[nextIndex]
-            || this.isSeparator(expressionArray[nextIndex])
+            || this.isFirstSeparator(expressionArray[nextIndex])
         );
     }
 
