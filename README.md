@@ -29,11 +29,12 @@ $ yarn install
 $ yarn test
 
 # Start the server
-$ yarn start
+$ yarn dev
 ```
 
 ### 📄 Request Format
-#### Note: you can customize the properties' values
+#### Note 1: you can customize the properties' values
+#### Note 2: you can only send an expression with blank space between the characters, as the example shows:( P -> ~ R ) & T
 ```json
 {
 	"syntax": {
@@ -59,6 +60,6 @@ $ yarn start
 				{ "first": "(", "last": ")" }
 		]
 	},
-	"expression": "( P -> R ) & T"
+	"expression": "( P -> ~ R ) & T"
 }
 ```
