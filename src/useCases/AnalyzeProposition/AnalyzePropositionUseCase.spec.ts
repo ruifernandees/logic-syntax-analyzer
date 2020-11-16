@@ -88,5 +88,23 @@ describe('Analyze proposition', () => {
         
         expect(result).toBeFalsy();
     });
+
+    it('should be false', () => {
+        const expression = "( ~ P ->   ) && R";
+
+        const analyzePropositionUseCase = new AnalyzePropositionUseCase();
+        const result = analyzePropositionUseCase.execute({ syntax: syntaxObject, expression });
+        
+        expect(result).toBeFalsy();
+    });
+
+    it('should be false', () => {
+        const expression = "(  P -> E ) && R";
+
+        const analyzePropositionUseCase = new AnalyzePropositionUseCase();
+        const result = analyzePropositionUseCase.execute({ syntax: syntaxObject, expression });
+        
+        expect(result).toBeFalsy();
+    });
 });
 
