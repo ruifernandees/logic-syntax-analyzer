@@ -4,7 +4,7 @@ import { IAnalyzePropositionRequestDTO } from "./AnalyzePropositionRequestDTO";
 export class AnalyzePropositionUseCase {
     constructor() {}
 
-    async execute(data: IAnalyzePropositionRequestDTO) {
+    execute(data: IAnalyzePropositionRequestDTO) {
         const {
             logicConstants,
             propositionalSymbols,
@@ -57,6 +57,13 @@ export class AnalyzePropositionUseCase {
                 }
 
                 return;
+            }
+
+            if (
+                !syntax.isPropositionalSymbol(item)
+                && !syntax.isLogicConstant(item)
+            ) {
+                allTruthyOfElements.push(false);
             }
         });
 
