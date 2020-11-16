@@ -20,5 +20,8 @@
       "@entities/*": ["./src/entities/*"],
       "@useCases/*": ["./src/useCases/*"]
     }
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
