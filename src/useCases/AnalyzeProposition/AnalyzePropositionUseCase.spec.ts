@@ -1,41 +1,83 @@
-import { Syntax } from '../../entities/Syntax';
 import path from 'path';
+import { AnalyzePropositionUseCase } from './AnalyzePropositionUseCase';
 
 describe('Analyze proposition', () => {
-    it('should analyze proposition', () => {
-        const syntaxObject = {
-            logicConstants: [
-                'V',
-                'F'
-            ],
-            propostionalSymbols: [
-                "P",
-                "Q",
-                "R",
-                "S",
-                "T"
-            ],
-            logicOperators: {
-                negativeOperator: "~",
-                andOperator: "&",
-                orOperator: "|",
-                implicationOperator: "->",
-                biImplicationOperator: "<->"
-            },
-            separators: [
-                { first: "(", last: ")" }
-            ]
-        };
+    const syntaxObject = {
+        logicConstants: [
+            'V',
+            'F'
+        ],
+        propositionalSymbols: [
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T"
+        ],
+        logicOperators: {
+            negativeOperator: "~",
+            andOperator: "&&",
+            orOperator: "|",
+            implicationOperator: "->",
+            biImplicationOperator: "<->"
+        },
+        separators: [
+            { first: "(", last: ")" }
+        ]
+    };
 
+    it('should be true', () => {
+        const expression = "( ~ P -> ~ Q ) && R";
 
-        const syntax = new Syntax(
-            syntaxObject.logicConstants,
-            syntaxObject.propostionalSymbols,
-            syntaxObject.logicOperators,
-            syntaxObject.separators
-        );
-
+        const analyzePropositionUseCase = new AnalyzePropositionUseCase();
+        const result = analyzePropositionUseCase.execute({ syntax: syntaxObject, expression });
         
+        expect(result).toBeTruthy();
+    });
+
+    it('should be false', () => {
+        const expression = " ~ P -> ~ Q ) && R";
+
+        const analyzePropositionUseCase = new AnalyzePropositionUseCase();
+        const result = analyzePropositionUseCase.execute({ syntax: syntaxObject, expression });
+        
+        expect(result).toBeFalsy();
+    });
+
+    it('should be false', () => {
+        const expression = "( ~ P -> ~ Q  && R";
+
+        const analyzePropositionUseCase = new AnalyzePropositionUseCase();
+        const result = analyzePropositionUseCase.execute({ syntax: syntaxObject, expression });
+        
+        expect(result).toBeFalsy();
+    });
+
+    it('should be false', () => {
+        const expression = "( ~ P -> ~   && R";
+
+        const analyzePropositionUseCase = new AnalyzePropositionUseCase();
+        const result = analyzePropositionUseCase.execute({ syntax: syntaxObject, expression });
+        
+        expect(result).toBeFalsy();
+    });
+
+    it('should be false', () => {
+        const expression = "( ~ P -> ~ Q)  && ";
+
+        const analyzePropositionUseCase = new AnalyzePropositionUseCase();
+        const result = analyzePropositionUseCase.execute({ syntax: syntaxObject, expression });
+        
+        expect(result).toBeFalsy();
+    });
+
+    it('should be false', () => {
+        const expression = "( ~ P - ~ Q)  && R";
+
+        const analyzePropositionUseCase = new AnalyzePropositionUseCase();
+        const result = analyzePropositionUseCase.execute({ syntax: syntaxObject, expression });
+        
+        expect(result).toBeFalsy();
     });
 });
 
