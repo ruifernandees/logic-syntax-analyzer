@@ -79,5 +79,14 @@ describe('Analyze proposition', () => {
         
         expect(result).toBeFalsy();
     });
+
+    it('should be false', () => {
+        const expression = "( ~ -> ~ Q)  && R";
+
+        const analyzePropositionUseCase = new AnalyzePropositionUseCase();
+        const result = analyzePropositionUseCase.execute({ syntax: syntaxObject, expression });
+        
+        expect(result).toBeFalsy();
+    });
 });
 
