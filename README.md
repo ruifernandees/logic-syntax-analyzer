@@ -34,7 +34,8 @@ $ yarn dev
 
 ### 📄 Request Format
 #### Note 1: you can customize the properties' values
-#### Note 2: you can only send an expression with blank space between the characters, as the example shows: ( P -> ~ R ) & T
+#### Note 2: you can only send an expression with blank space between the characters, as the example shows: 
+#### ( P -> ~ R ) & T
 ```json
 {
 	"syntax": {
