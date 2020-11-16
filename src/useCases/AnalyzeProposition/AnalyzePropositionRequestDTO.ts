@@ -1,10 +1,10 @@
-import { logicOperator } from '@entities/Syntax';
+import { logicOperator, separator } from '@entities/Syntax';
 
 type syntax = {
     logicConstants: string[],
     propositionalSymbols: string[],
     logicOperators: logicOperator,
-    separators: string[]
+    separators: separator[]
 };
 
 export interface IAnalyzePropositionRequestDTO {
