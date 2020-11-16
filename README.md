@@ -2,7 +2,7 @@
 <img src="prints/insomnia.png" alt="Logic Syntax Analyzer request on Insomnia">
 
 ## 📝 Description
-L.S. Analyzer is a REST API that receive a syntax and an expression that you defines and return if the expression is valid, based on your syntax.
+L.S. Analyzer is a REST API that receives a syntax and an expression that you define and returns if the expression is valid, based on your syntax.
 
 ## 💻 Technologies
 - TypeScript
