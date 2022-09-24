@@ -1,11 +1,14 @@
 {
   "name": "logic-syntax-analyzer",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "Rui Fernandes <dev.ruifernandes@gmail.com>",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
-    "test": "jest"
+    "sample": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/sample.ts",
+    "test": "jest",
+    "prepublish": "tsc"
   },
   "devDependencies": {
     "@types/express": "^4.17.9",

@@ -1,4 +1,3 @@
-import path from 'path';
 import { AnalyzePropositionUseCase } from './AnalyzePropositionUseCase';
 
 describe('Analyze proposition', () => {

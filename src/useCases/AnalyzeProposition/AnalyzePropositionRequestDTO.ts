@@ -1,4 +1,4 @@
-import { logicOperator, separator } from '@entities/Syntax';
+import { logicOperator, separator } from '../../entities/Syntax';
 
 type syntax = {
     logicConstants: string[],
